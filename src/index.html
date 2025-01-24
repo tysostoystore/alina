@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/icons/logo.png">
+    <title>Alina Foundation – Art for a Better Tomorrow</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Alina Foundation – Art for a Better Tomorrow</h1>
+        <p class="tagline">Helping kids express their dreams, one drawing at a time.</p>
+        
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <button class="nav-btn" data-scroll="mission">Our Mission</button>
+            <button class="nav-btn" data-scroll="gallery">Gallery</button>
+            <button class="nav-btn" data-scroll="help">Get Help</button>
+            <button class="nav-btn" data-scroll="wallet">Wallet Transparency</button>
+            <button class="nav-btn" data-scroll="social">Connect</button>
+        </div>
+
+        <!-- Separate Donate Button -->
+        <div class="donate-button-container">
+            <button class="donate-btn">Donate SOL</button>
+        </div>
+    </header>
+
+    <!-- Mission Section -->
+    <section id="mission" class="section">
+        <div class="mission-content">
+            <h2>Our Mission</h2>
+            <div class="mission-card">
+                <p>As adults, we know how hard it can be to give kids everything they dream of.<br>The Alina Foundation is here to make a difference.<br> By supporting children's creativity, we can give back to families in need worldwide.</p>
+                <div class="mission-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Children Helped</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Art Pieces Sold</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Countries Reached</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Art Gallery Section -->
+<section id="gallery" class="section">
+    <h2>Art Gallery</h2>
+    
+    <div class="gallery-grid">
+        <!-- Art items will be dynamically populated -->
+    </div>
+
+    <div id="auction-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Coming Soon!</h3>
+            <p>The auction feature is currently in development. Stay tuned for updates!</p>
+        </div>
+    </div>
+
+    <div class="gallery-controls">
+        <button class="gallery-btn active" data-filter="all">All Art</button>
+        <button class="gallery-btn" data-filter="recent">Recent</button>
+        <button class="gallery-btn" data-filter="featured">Featured</button>
+        <button class="submit-art-btn">Submit Art</button>
+    </div>
+</section>
+
+<!-- Help Section -->
+<section id="help" class="section">
+    <h2>Need Support?</h2>
+    <p>We help kids and families by redistributing proceeds. If your family needs support, submit a request below.</p>
+    <div class="help-cards">
+        <div class="help-card">
+            <h3>Financial Support</h3>
+            <p>Direct financial assistance for families in need.</p>
+            <button class="help-btn" data-type="financial">Request Help</button>
+        </div>
+        <div class="help-card">
+            <h3>Art Supplies</h3>
+            <p>Get art supplies for your children's creative journey.</p>
+            <button class="help-btn" data-type="supplies">Request Supplies</button>
+        </div>
+        <div class="help-card">
+            <h3>Mentorship</h3>
+            <p>Connect with art mentors for guidance and support.</p>
+            <button class="help-btn" data-type="mentorship">Request Mentor</button>
+        </div>
+    </div>
+</section>
+
+<!-- Add this to your existing popups section -->
+<div id="help-form-popup" class="popup">
+    <div class="popup-content">
+         <button class="close-btn" onclick="closePopup('help-form-popup')" aria-label="Close"></button>
+        <h2>Request Support</h2>
+        <form id="helpForm" onsubmit="submitHelpRequest(event)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="helpType">Type of Help Needed</label>
+                <select id="helpType" required>
+                    <option value="financial">Financial Support</option>
+                    <option value="supplies">Art Supplies</option>
+                    <option value="mentorship">Mentorship</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="reason">Tell us about your situation</label>
+                <textarea id="reason" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="proof">Supporting Documents (optional)</label>
+                <label for="proof" class="file-upload-label">
+                    <span>Click to upload files</span>
+                    <input type="file" id="proof" accept=".pdf,.jpg,.png">
+                </label>
+                <span class="file-upload-info">Upload any relevant documents (max 5MB)</span>
+            </div>
+            <div class="form-buttons">
+                <button type="submit">Submit Request</button>
+            </div>
+        </form>
+    </div>
+</div>
+    
+
+    <!-- Wallet Transparency Section -->
+    <section id="wallet" class="section">
+        <h2>Wallet Transparency</h2>
+        <div class="wallet-info">
+            <p class="wallet-balance">Wallet Balance: <span id="balance">Loading...</span></p>
+            <div class="recent-transactions" id="transactions">
+                <!-- Transactions will be dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section id="social" class="section">
+        <h2>Connect With Us</h2>
+        <div class="social-links">
+            <a href="https://dexscreener.com/solana/az4atj1nse3ryxfe6vdrlwcghndkr53pw5xstutbmzn" class="social-link" target="_blank">
+                <img src="./assets/icons/dex.png" alt="Dexscreener" class="social-icon">
+            </a>
+            <a href="https://x.com/alinathedolphin" class="social-link" target="_blank">
+                <img src="./assets/icons/x.png" alt="X" class="social-icon">
+            </a>
+            <a href="https://t.me/AlinaCommunityPortal" class="social-link" target="_blank">
+                <img src="./assets/icons/tg.png" alt="Telegram" class="social-icon">
+            </a>
+            <a href="https://www.twitch.tv/alinathedolphin" class="social-link" target="_blank">
+                <img src="./assets/icons/twitch.png" alt="Twitch" class="social-icon">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wallet-addresses">
+            <p>$ALINA Wallet Address: <span class="address">FTJocVcf3TiMXnV3Syfi51QAno3oqWVfTCRUWmn4qtYE</span></p>
+            <p>$ALINA Contract Address: <span class="address">DE49vWtUWZYGWxr6UVP1grRF6Cqya5YMs3FFiu7Bpump</span></p>
+        </div>
+        <p class="copyright">Built with Love by $ALINA</p>
+    </footer>
+
+    <!-- Popup Templates -->
+    <div id="artwork-popup" class="popup">
+        <!-- Artwork details popup content -->
+    </div>
+
+    <div id="help-form-popup" class="popup">
+        <!-- Help request form popup content -->
+    </div>
+
+    <div id="submit-art-popup" class="popup">
+        <!-- Art submission form popup content -->
+    </div>
+
+    <script src="https://bundle.run/buffer@6.0.3"></script>
+    <script>
+        window.Buffer = buffer.Buffer;
+    </script>
+    <script src="https://unpkg.com/@solana/web3.js@1.87.6/lib/index.iife.min.js"></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
